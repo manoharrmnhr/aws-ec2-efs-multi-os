@@ -44,4 +44,44 @@ All instances are created in the same VPC and security group.
 ```bash
 sudo apt update -y
 sudo apt install nfs-common -y
+```
+**Red Hat**
+```
+sudo yum install nfs-utils -y
+```
+**Amazon Linux 2**
+```
+sudo yum install amazon-efs-utils -y
+```
+----
+4️⃣ Mount EFS
+```
+sudo mkdir /efs
+sudo mount -t nfs4 fs-xxxx.efs.us-east-1.amazonaws.com:/ /efs
+```
+---
+5️⃣ Verify Shared Storage
+```
+df -h
+ls /efs
+```
+Files created on one instance are visible on all others.
+---
+📷 Screenshots
 
+Screenshots included for:
+
+EC2 instances running
+
+EFS creation
+
+Successful EFS mount on all OS
+---
+🎯 Outcome
+
+Successfully connected a single EFS file system to multiple EC2 instances running different Linux operating systems.
+---
+👤 Author
+
+Manohar R
+Cloud | DevOps | DevSecOps Engineer
